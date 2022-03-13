@@ -1,0 +1,51 @@
+;
+;	File '3rgb.top' was generated
+;	By user: unknown (1000)
+;	On host: planck
+;	At date: Wed Apr 28 17:54:52 2021
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2018.3 (-:
+;	
+;	Executable:   /opt/programs/gromacs-2018.3/bin/gmx
+;	Data prefix:  /opt/programs/gromacs-2018.3
+;	Working dir:  /home/julio/Documents/projetos/mestrado/William/3RGB/MD/oplsaa/DCU/prepare/revised
+;	Command line:
+;	  gmx pdb2gmx -f 3rgb_A_Sol.pdb -o 3rgb_A_Sol.gro -ter -p 3rgb.top
+;	Force field was read from the standard GROMACS share directory.
+;
+
+; Include forcefield parameters
+#include "oplsaa.ff/forcefield.itp"
+
+; Include chain topologies
+#include "3rgb_Protein_chain_A.itp"
+#include "3rgb_Ion_chain_B.itp"
+#include "3rgb_Ion_chain_C.itp"
+
+; Include water topology
+#include "oplsaa.ff/tip4p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "oplsaa.ff/ions.itp"
+
+[ system ]
+; Name
+Protein in water
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+Ion_chain_B         1
+Ion_chain_C         1
+SOL         32773
+NA               1

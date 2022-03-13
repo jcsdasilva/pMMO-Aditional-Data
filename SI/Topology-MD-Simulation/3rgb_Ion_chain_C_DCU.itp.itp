@@ -1,0 +1,66 @@
+;
+;	File '3rgb_Ion_chain_C.itp' was generated
+;	By user: unknown (1000)
+;	On host: planck
+;	At date: Wed Apr 28 17:54:57 2021
+;
+;	This is a include topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2018.3 (-:
+;	
+;	Executable:   /opt/programs/gromacs-2018.3/bin/gmx
+;	Data prefix:  /opt/programs/gromacs-2018.3
+;	Working dir:  /home/julio/Documents/projetos/mestrado/William/3RGB/MD/oplsaa/DCU/prepare/revised
+;	Command line:
+;	  gmx pdb2gmx -f 3rgb_A_Sol.pdb -o 3rgb_A_Sol.gro -ter -p 3rgb.top
+;	Force field was read from the standard GROMACS share directory.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+Ion_chain_C         3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue 416 DCU rtp DCU  q +2.0
+     1   opls_967    416    DCU     CU      1         -1     45.546   ; qtot -1
+     2   opls_968    416    DCU    DM1      1       0.05          3   ; qtot -0.95
+     3   opls_968    416    DCU    DM2      1      0.725          3   ; qtot -0.225
+     4   opls_968    416    DCU    DM3      1      0.725          3   ; qtot 0.5
+     5   opls_968    416    DCU    DM4      1      0.725          3   ; qtot 1.225
+     6   opls_968    416    DCU    DM5      1      0.725          3   ; qtot 1.95
+     7   opls_968    416    DCU    DM6      1       0.05          3   ; qtot 2
+
+[ bonds ]
+;  ai    aj funct            c0            c1            c2            c3
+    1     2     1    0.0800     669440.0
+    1     3     1    0.1000     669440.0
+    1     4     1    0.1000     669440.0
+    1     5     1    0.1000     669440.0
+    1     6     1    0.1000     669440.0
+    1     7     1    0.0800     669440.0
+
+[ angles ]
+;  ai    aj    ak funct            c0            c1            c2            c3
+    2     1     3     1    90.0    1046.0
+    2     1     4     1    90.0    1046.0
+    2     1     5     1    90.0    1046.0
+    2     1     6     1    90.0    1046.0
+    2     1     7     1    180.0    1046.0
+    3     1     4     1    90.0    1046.0
+    3     1     5     1    180.0    1046.0
+    3     1     6     1    90.0    1046.0
+    3     1     7     1    90.0    1046.0
+    4     1     5     1    90.0    1046.0
+    4     1     6     1    180.0    1046.0
+    4     1     7     1    90.0    1046.0
+    5     1     6     1    90.0    1046.0
+    5     1     7     1    90.0    1046.0
+    6     1     7     1    90.0    1046.0
+
+; Include Position restraint file
+#ifdef POSRES
+#include "posre_Ion_chain_C.itp"
+#endif
+
