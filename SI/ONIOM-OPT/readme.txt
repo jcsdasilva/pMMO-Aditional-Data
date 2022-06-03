@@ -1,0 +1,1 @@
+ONIOM (UB1LYP-D2:UFF) Optimized strcuture. 
